@@ -1,0 +1,26 @@
+body{
+height: 100%;
+width: 100%;
+}
+
+#corpo{
+background-color: burlywood;
+max-width: 550px;
+width:500px; 
+height: 450px; 
+margin: 0 auto;
+}
+.text-center{
+background-color: aquamarine;
+height: 50px;
+}
+
+#projeto{
+padding:150px ;
+height: 100px;
+}
+.dropdown{
+padding: 20px;
+
+}
+
