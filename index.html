@@ -8,106 +8,74 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"> </head>
 
-    <title>Convertor de medida</title>
+    <title>Conversor de medida</title>
 </head>
 <body>
-    <div id="corpo" >
-    <div id="cabeca">
-    <div class="container text-center" >
-    <div class="row align-items-start">
-    <div class="col">
-                  Conversor
-    </div>
-    <div id="projeto">
-        <div class="input-group mb-3">
-            <input type="text" id="valor" placeholder="Digite o número desejado" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="container text-center ">
+        <div class="row">
+          <div class="col-4">
+            
           </div>
-          <div id="tipo">                      
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="caracter" id="come('centi')" value="cm" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                    Centímetros
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="caracter" id="come('met')" value="m">
-                <label class="form-check-label" for="exampleRadios2">
-                    Metros
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="caracter" id="come('quilo')" value="km" disabled>
-                <label class="form-check-label" for="exampleRadios3">
-                    Quilômetros
-                </label>
-              </div>
+          <div class="col-4">
+            <h2>Conversor de medidas</h2>
+            <div class="input-group mb-3">
+              <input type="number" id ="valor" class="form-control" aria-label="Text input with dropdown button" placeholder="Digite uma medida">
+              <select class="form-select" id="inputGroupSelect01">
+                <option selected>Selecionar...</option>
+                <option value="p1">Pés</option>
+                <option value="q1">Quilômetros</option>
+                <option value="m1">Metros</option>
+              </select>
+                </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">converter para</label>
+              <select class="form-select" id="inputGroupSelect02">
+                <option selected>Selecionar...</option>
+                <option value="p2">Pés</option>
+                <option value="q2">Quilômetros</option>
+                <option value="m2">Metros</option>
+              </select>
+          </div>
 
+          <button type="button" onclick="teste()" class="btn btn-warning">Converter</button>
+
+      </div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-4">
+    
           </div>
-        <div id="botao">
-            <div class="dropdown" data-bs-theme="light">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonLight" 
-                onclick="operacao('')"data-bs-toggle="dropdown" aria-expanded="false">
-                  Converter para
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
-                    <li><a class="dropdown-item active" ></a></li>
-                     <li><a class="dropdown-item active" onclick= "operacao('mt')">Metros</a></li>
-                     <li><a class="dropdown-item" onclick="operacao('centim')">Centímetros</a></li>
-                     <li><a class="dropdown-item" onclick="operacao('km')">KM</a></li>
-                   </ul>
-              </div>
-        </div>
+          <div class="col-4 p-3"  st>
+            <div class="form-floating ">
+              <input type="text" id="resultado" class="form-control" placeholder="resultado" disabled>
+              <label for="floatingInput">Resultado</label>
             </div>
+          </div>
         </div>
-        <div id="finalizacao">
-            <textarea name="resultado" id="resultado" cols="40" rows="4" disabled></textarea>
-        </div>
+      </div>
     </div>
-    <script>
+  </div>
+      <script>
+
+
+       function teste(){
+        var valor="";
+        ///document.getElementById("resultado").value = resultado;
+         
+        const sb = document.querySelector("#inputGroupSelect01");
+        const bs = document.querySelector("#inputGroupSelect02");
+        valor = document.querySelector("#valor");
+       
+        event.preventDefault();  
+        const selectValues = [].filter.call(sb.options, option => option.selected).map (option => option.text);  
+        const selectValues1 = [].filter.call(bs.options, option => option.selected).map (option => option.text);  
+    
+        alert(valor.value + selectValues + selectValues1);
+        
+        }
+       
 
       
-       function operacao(op) {
-       
-        var valor = parseFloat(document.getElementById("valor").value);
-        var selecao = document.querySelector('input[name="caracter"]:checked').value;
-        var resultado = "";
-
-        if (come == centi && operacao== centim){
-            valor = centi * 1 
-            resultado= ("A operação resulta em " + valor )
-        }
-        else if (come == centi && operacao == km){
-            valor = centi /100.000;
-            resultado= ("A operação resulta em " + valor )
-        }
-        else if (come == centi && operacao == mt){
-            valor = centi / 60;
-            resultado ="";
-        }
-        else if (come == met && operacao == centim ){
-            valor = met =60;
-            resultado ="";
-        }
-        else if (come == met && operacao == km){
-            resultado ="";
-        }
-        else if (come == met && operacao == mt){
-            valor = met * 1 
-            resultado= ("A operação resulta em " + valor )
-        }
-        else if (come == quilo && operacao == centim){
-            resultado ="";
-        }
-        else if (come == quilo && operacao == mt){
-            resultado ="";
-        }
-        else if (come== quilo && operacao == km){
-            valor = quilo * 1 
-            resultado= ("A operação resulta em " + valor )
-        }
-
-        document.getElementById("resultado").value = resultado;
- }
     
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
